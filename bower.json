@@ -16,7 +16,6 @@
   ],
   "dependencies": {
     "bootstrap": "^3.3.6",
-    "chain3": "^0.1.9",
     "jquery-ui": "^1.11.4"
   }
 }

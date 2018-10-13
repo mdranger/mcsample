@@ -3,11 +3,10 @@
 var SolidityCoder = require("chain3/lib/solidity/coder.js");
 var Chain3 = require('chain3/index.js');
 
-//var account = '0x4cf24bf15bfead008b22ea33b7c99a82326031a7'; // Pi
 //ERC20 contract address
 // Used with erc20abi.js
-var account = '0xa8863fc8ce3816411378685223c03daae9770ebb'; // Dev
-var acc2 = '0x7312f4b8a4457a36827f185325fd6b66a3f8bb8b';
+var account = '0xa8863fc8ce3816411378685223c03daae9770ebb'; // src account
+var acc2 = '0x7312f4b8a4457a36827f185325fd6b66a3f8bb8b';  //des address
 var contractAddress = '0x67e572c24220fc76c19e3f143bc3183007d19880';
 
 var chain3 = new Chain3();
@@ -31,9 +30,9 @@ filter.watch(function(error, result){
   if (error) return;
   
   var block = chain3.mc.getBlock(result, true);
-  console.log('block #' + block.number);
+  // console.log('block #' + block.number);
 
-  console.dir(block.transactions);
+  // console.dir(block.transactions);
 
   for (var index = 0; index < block.transactions.length; index++) {
     var t = block.transactions[index];
@@ -71,23 +70,22 @@ filter.watch(function(error, result){
 
 setInterval(function() {
 
-  // Account balance in Mc
-  var balanceSha = chain3.mc.getBalance(account).toNumber();
-  var balance = chain3.fromSha(balanceSha, 'mc');
-  $('#label1').text(balance);
+  // Account address 
+  $('#label1').text(account);
 
-  // Block number
+  // latest Block number
   var number = chain3.mc.blockNumber;
   if ($('#label2').text() != number)
     $('#label2').text(number).effect("highlight");
 
-  // Contract coin balance: call (not state changing)
-  var coinBalance = contract.balanceOf(account).toString(10);//getCoinAccount.call();
-  $('#label3').text(coinBalance);
+  // Account balance in Mc 
+  var balanceSha = chain3.mc.getBalance(account).toNumber();
+  var balance = chain3.fromSha(balanceSha, 'mc');
+  $('#label3').text(balance);
 
-  // Contract energy balance: call (not state changing)
-  var desBalance = contract.balanceOf(acc2).toString(10);
-  $('#label4').text(desBalance);
+  // Contract coin balance: call (not state changing)
+  var tokenBalance = contract.balanceOf(account).toString(10);
+  $('#label4').text(tokenBalance);
 
 }, 3000);
 
@@ -101,7 +99,9 @@ function getFunctionHashes(abi) {
     if (item.type != "function") continue;
     var signature = item.name + "(" + item.inputs.map(function(input) {return input.type;}).join(",") + ")";
     var hash = chain3.sha3(signature);
-    console.log(item.name + '=' + hash);
+    
+    // console.log(item.name + '=' + hash);
+
     hashes.push({name: item.name, hash: hash});
   }
   return hashes;
