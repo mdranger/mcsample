@@ -46,7 +46,18 @@ chain3.setProvider(new chain3.providers.HttpProvider('http://localhost:8545'));
 
 ## Run the sample
 
-Start the MOAC node, deploy the erc
+Start the MOAC node and make sure turn on the rpc port at default localhost:8545.
+
+Open the index.html, it should disply the account balance in mc and erc20 token.
+
+Transfer the erc20 token using the account, you should see the transfer event showed in the transactions list
+
+``` sh
+block#  from    to
+......
+9400    me  MOAC token
+```
+
 
 
 ## How it works
