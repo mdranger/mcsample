@@ -1,0 +1,23 @@
+{
+  "name": "mcsample",
+  "version": "0.1.0",
+  "description": "MOAC ERC20 token sample webpage",
+  "main": "mcexample.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdranger/mcsample.git"
+  },
+  "author": "zhengpeng li <zhengpeng.li@moac.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdranger/mcsample/issues"
+  },
+  "homepage": "https://github.com/mdranger/mcsample#readme",
+  "dependencies": {
+    "chain3": "^0.1.9",
+    "crypto-browserify": "^3.12.0"
+  }
+}

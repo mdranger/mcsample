@@ -1,0 +1,22 @@
+{
+  "name": "mcsample",
+  "authors": [
+    "zhengpeng li <zhengpeng.li@moac.io>"
+  ],
+  "description": "MOAC ERC20 token sample webpage",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "https://github.com/mdranger/mcsample",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "chain3": "^0.1.9",
+    "jquery-ui": "^1.11.4"
+  }
+}
